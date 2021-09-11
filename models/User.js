@@ -47,6 +47,7 @@ User.init(
     }
   },
   {
+    // BCRYPT Segment
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(userData){

@@ -1,5 +1,6 @@
 const {Model, DataTypes} =require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 //Create our User Model
 class User extends Model{}
@@ -42,6 +43,15 @@ User.init(
       validate: {
         // this means the password must be at least four characters long
         len:[4]
+      }
+    }
+  },
+  {
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(userData){
+        newUserData.password = await bcrypt.hash(newUserData.password,10);
+        return newUserData;
       }
     }
   },

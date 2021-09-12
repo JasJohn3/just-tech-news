@@ -4,8 +4,4 @@ const userRoutes = require('./user-routes.js');
 
 router.use('/users', userRoutes);
 
-<<<<<<< HEAD
-module.exports = router; 
-=======
 module.exports = router;
->>>>>>> origin

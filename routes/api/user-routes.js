@@ -47,8 +47,6 @@ router.post('/', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-=======
 // Login route
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
@@ -73,16 +71,12 @@ router.post('/login', (req, res) => {
   });
 });
 
->>>>>>> origin
 router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // pass in req.body instead to only update what's passed through
   User.update(req.body, {
-<<<<<<< HEAD
-=======
     individualHooks: true,
->>>>>>> origin
     where: {
       id: req.params.id
     }

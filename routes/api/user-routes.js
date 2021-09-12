@@ -47,6 +47,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// Login route
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
@@ -58,14 +59,14 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
-
+    // Get the password value passed through the req.body from the User attempting login
     const validPassword = dbUserData.checkPassword(req.body.password);
-
+    // Error handling when no valid password is provided
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-
+    // Login message for a successfuly validated password
     res.json({ user: dbUserData, message: 'You are now logged in!' });
   });
 });

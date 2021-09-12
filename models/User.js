@@ -4,7 +4,11 @@ const sequelize = require('../config/connection');
 
 // create our User model
 class User extends Model {
+<<<<<<< HEAD
   // set up method to run on instance data (per user) to check password
+=======
+  // Password verification method for bcrypt
+>>>>>>> origin
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
@@ -60,4 +64,8 @@ User.init(
   }
 );
 
+<<<<<<< HEAD
 module.exports = User;
+=======
+module.exports = User;
+>>>>>>> origin

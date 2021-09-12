@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import all models
 const Post = require('./Post');
 const User = require('./User');
@@ -67,3 +68,8 @@ Post.hasMany(Comment, {
 });
 
 module.exports = { User, Post, Vote, Comment };
+=======
+const User = require('./User');
+
+module.exports ={User};
+>>>>>>> origin

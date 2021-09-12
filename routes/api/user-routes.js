@@ -47,11 +47,42 @@ router.post('/', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+=======
+// Login route
+router.post('/login', (req, res) => {
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No user with that email address!' });
+      return;
+    }
+    // Get the password value passed through the req.body from the User attempting login
+    const validPassword = dbUserData.checkPassword(req.body.password);
+    // Error handling when no valid password is provided
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+    // Login message for a successfuly validated password
+    res.json({ user: dbUserData, message: 'You are now logged in!' });
+  });
+});
+
+>>>>>>> origin
 router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // pass in req.body instead to only update what's passed through
   User.update(req.body, {
+<<<<<<< HEAD
+=======
+    individualHooks: true,
+>>>>>>> origin
     where: {
       id: req.params.id
     }

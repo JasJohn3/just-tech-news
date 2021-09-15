@@ -60,9 +60,7 @@ router.post('/', (req, res) => {
     email: req.body.email,
     password: req.body.password
   })
-    .then(dbUserData => {
-      res.json(dbUserData);
-    })
+    .then(dbUserData => res.json(dbUserData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -103,7 +101,7 @@ router.put('/:id', (req, res) => {
     }
   })
     .then(dbUserData => {
-      if (!dbUserData) {
+      if (!dbUserData[0]) {
         res.status(404).json({ message: 'No user found with this id' });
         return;
       }
